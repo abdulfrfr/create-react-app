@@ -1,8 +1,10 @@
 name: build docker image and push to docker hub
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      api-key:
+        description: 'API Key'
+        required: true
 jobs:
   build-and-push:
     runs-on: ubuntu:latest
