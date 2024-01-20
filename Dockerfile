@@ -1,9 +1,11 @@
 FROM node AS prod
 WORKDIR /app
+RUN npm install -g npm@latest
 COPY package*.json ./
-RUN npm i
+RUN npm install
 COPY . .
 # RUN npm test - if you want to test before to build
+RUN npm run create-react-app demo-app
 RUN npm run build
 
 FROM nginx:alpine
