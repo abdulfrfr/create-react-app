@@ -1,11 +1,11 @@
 FROM node AS prod
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN yarn install
 COPY . .
 # RUN npm test - if you want to test before to build
-RUN npm run create-react-app
-RUN npm run build
+RUN yarn run create-react-app
+RUN yarn run build
 
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
